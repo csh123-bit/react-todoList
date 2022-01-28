@@ -18,7 +18,7 @@ function App() {
       <Title>ToDo</Title>
       <form onSubmit={handleSubmit}>
         <InputWrapper>
-          <InputText placeholder="할 일을 입력해주세요" 
+          <InputText value={text} placeholder="할 일을 입력해주세요" 
           onChange={(e)=>setText(e.target.value)}
           required/>
           <BtnSubmit>+</BtnSubmit>
