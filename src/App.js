@@ -1,33 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 import styled from "styled-components";
+import {useState} from "react";
 
 function App() {
+
+  const [text, setText] = useState("");
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    console.log(text);
+    setText("");
+  };
+
   return (
     <Container>
       <Title>ToDo</Title>
-      <form>
+      <form onSubmit={handleSubmit}>
         <InputWrapper>
-          <InputText placeholder="할 일을 입력해주세요" required/>
+          <InputText placeholder="할 일을 입력해주세요" 
+          onChange={(e)=>setText(e.target.value)}
+          required/>
           <BtnSubmit>+</BtnSubmit>
         </InputWrapper>
       </form>
-      <List>
-        <Item>
-          <label>
-            <Checkbox type="checkbox"/>
-            <Content>할일</Content>
-          </label>
-          <BtnDelete>X</BtnDelete>
-        </Item>
-        <Item>
-          <label>
-            <Checkbox type="checkbox" />
-            <Content>할일</Content>
-          </label>
-          <BtnDelete>X</BtnDelete>
-        </Item>
-      </List>
     </Container>
   );
 }
